@@ -1,0 +1,12 @@
+div{
+    background-color: lightskyblue ;
+}
+app-logo-ap{
+    float: left;
+    right: 50px;
+    height: 100px;
+}
+app-redes{
+    float: right;
+    margin-top: 25px;
+}

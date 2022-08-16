@@ -22,9 +22,9 @@
               "src/favicon.ico",
               "src/assets"
             ],
-            "styles": ["portMunho/node_modules/bootstrap/dist/css/bootstrap.css",
+            "styles": ["node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"],
-            "scripts": ["portMunho/node_modules/bootstrap/dist/js/bootstrap.js"]
+            "scripts": ["node_modules/bootstrap/dist/js/bootstrap.min.js"]
           },
           "configurations": {
             "production": {
