@@ -22,10 +22,10 @@
               "src/favicon.ico",
               "src/assets"
             ],
-            "styles": [
+            "styles": ["portMunho/node_modules/bootstrap/dist/css/bootstrap.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": ["portMunho/node_modules/bootstrap/dist/js/bootstrap.js"]
           },
           "configurations": {
             "production": {
@@ -89,13 +89,16 @@
               "src/favicon.ico",
               "src/assets"
             ],
-            "styles": [
+            "styles": ["portMunho/node_modules/bootstrap/dist/css/bootstrap.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": ["portMunho/node_modules/bootstrap/dist/js/bootstrap.js"]
           }
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }
