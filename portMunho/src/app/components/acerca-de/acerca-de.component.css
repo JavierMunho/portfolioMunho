@@ -9,10 +9,10 @@ div{background-color: cadetblue;
           @media (min-width:576px) {
               #fotodeperfil {
             position: absolute;
-                  width: 20%;
+                  width: 25%;
                   border-radius: 100%;
                   box-shadow: 3px 3px 3px gray;
-                  left: 1%;
+                  left:1%;
                   top: 350px;
               }
             }
@@ -23,13 +23,13 @@ div{background-color: cadetblue;
                                 border-radius: 100%;
                                 box-shadow: 3px 3px 3px gray;
                                 left: 31%;
-                                top: 485px;
+                                top: 550px;
                             }
                         }
     /*etiqueta nombre*/
     #nombre{
         font-weight: bold;
-        margin-top:30%;
-    
+        margin-top:15%;
+    left:35% ;
     }
   

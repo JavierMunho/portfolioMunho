@@ -1,12 +1,13 @@
-div{
-    background-color: cadetblue ;
+div{background: cadetblue ;
 }
 app-logo-ap{
     float: left;
-    right: 50px;
+    right:100px;
     height: 100px;
 }
 app-redes{
     float: right;
-    margin-top: 25px;
+    right: 50px;
+    height: 100px;
+    margin-top: 20px;
 }
