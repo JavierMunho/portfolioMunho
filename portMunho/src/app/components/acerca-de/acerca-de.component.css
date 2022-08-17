@@ -1,0 +1,35 @@
+.row{
+    padding: 15px;
+}
+div{background-color: cadetblue;
+    text-align: center ;
+}
+           /*estilo de foto*/
+    
+          @media (min-width:576px) {
+              #fotodeperfil {
+            position: absolute;
+                  width: 20%;
+                  border-radius: 100%;
+                  box-shadow: 3px 3px 3px gray;
+                  left: 1%;
+                  top: 350px;
+              }
+            }
+                        @media (max-width:576px) {
+                            #fotodeperfil {
+                                position: absolute;
+                                width: 40%;
+                                border-radius: 100%;
+                                box-shadow: 3px 3px 3px gray;
+                                left: 31%;
+                                top: 485px;
+                            }
+                        }
+    /*etiqueta nombre*/
+    #nombre{
+        font-weight: bold;
+        margin-top:30%;
+    
+    }
+  
