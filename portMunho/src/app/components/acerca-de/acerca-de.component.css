@@ -9,27 +9,28 @@ div{background-color: cadetblue;
           @media (min-width:576px) {
               #fotodeperfil {
             position: absolute;
-                  width: 25%;
-                  border-radius: 100%;
-                  box-shadow: 3px 3px 3px gray;
-                  left:1%;
-                  top: 350px;
-              }
+                width: 22%;
+                border-radius: 100%;
+                box-shadow: 3px 3px 3px grey;
+                left: 3%;
+                top: 350px;
             }
+              }
+            
                         @media (max-width:576px) {
                             #fotodeperfil {
-                                position: absolute;
-                                width: 40%;
+                            position: absolute;
+                                width: 35%;
                                 border-radius: 100%;
-                                box-shadow: 3px 3px 3px gray;
+                                box-shadow: 3px 3px 8px grey;
                                 left: 31%;
-                                top: 550px;
+                                top: 145px;
                             }
                         }
     /*etiqueta nombre*/
     #nombre{
         font-weight: bold;
-        margin-top:15%;
+        margin-top:25%;
     left:35% ;
     }
   
