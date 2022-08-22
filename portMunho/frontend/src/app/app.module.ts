@@ -13,6 +13,7 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
 import { HysskillComponent } from './components/hysskill/hysskill.component';
 import { ProyectosComponent } from './components/proyectos/proyectos.component';
 import { FotherComponent } from './components/fother/fother.component';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +30,8 @@ import { FotherComponent } from './components/fother/fother.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgCircleProgressModule.forRoot({})
+    NgCircleProgressModule.forRoot({}),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
