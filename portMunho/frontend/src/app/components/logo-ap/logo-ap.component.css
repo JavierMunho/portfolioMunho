@@ -16,10 +16,11 @@
 img {
    width: 25px;
 }
-.logo {
-
-   size: 150px;
+.logo{margin-left: 1px;}
+img{
+  size: 100px;
 }
+
 
 .btn{
    border-width: medium;

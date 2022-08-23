@@ -9,11 +9,11 @@ div{background-color: cadetblue;
           @media (min-width:576px) {
               #fotodeperfil {
             position: absolute;
-                width: 22%;
+                width: 23%;
                 border-radius: 100%;
                 box-shadow: 3px 3px 3px grey;
                 left: 3%;
-                top: 350px;
+                top: 290px;
             }
               }
             
