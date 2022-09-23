@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package com.portfolioMunho.njm.Security.Jwt;
 
 
@@ -22,6 +19,6 @@ public class JwtEntryPoint implements AuthenticationEntryPoint{
     @Override
     public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException authException) throws IOException, ServletException {
        logger.error("fallo el metodo commence ");
-       response.sendError(HttpServletResponse.SC_UNAUTHORIZED );
+       response.sendError(HttpServletResponse.SC_UNAUTHORIZED);
     }
 }

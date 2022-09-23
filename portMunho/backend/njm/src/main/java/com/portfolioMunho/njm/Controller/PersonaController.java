@@ -5,6 +5,7 @@ import com.portfolioMunho.njm.Entity.Persona;
 import com.portfolioMunho.njm.Interface.IPersonaService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,22 +21,27 @@ import org.springframework.web.bind.annotation.RestController;
 public class PersonaController {
    @Autowired IPersonaService ipersonaService;
    
-  @GetMapping("personas/traer")
+  @GetMapping("/persona/traer")
    public List <Persona> getPersona(){
        return ipersonaService.getPersona();
    }
+   
+  @PreAuthorize("hashRole('ADMIN')")
   
-   @PostMapping("/personas/crear")
+  
+   @PostMapping("/persona/crear")
    public String createPersona(@RequestBody Persona persona){
    ipersonaService.savePersona(persona);
    return "registro creado correctamente";
 }
-   @DeleteMapping("/personas/borrar/{id}")
-   public String deletePersona(@PathVariable Long id) {
+   @PreAuthorize("hashRole('ADMIN')")
+   @DeleteMapping("/persona/borrar/{id}")
+   public String deletePersona(@PathVariable Long id){
        ipersonaService.deletePersona(id);
-      return "el regidtro se borro completamente";
+      return "el registro se borro completamente";
 }  
-  @PutMapping("/personas/editar/{id}")
+   @PreAuthorize("hashRole('ADMIN')")
+  @PutMapping("/persona/editar/{id}")
   public Persona editPersona(@PathVariable Long id,
                              @RequestParam("nombre")String nuevoNombre,
                              @RequestParam("apellido")String nuevoApellido,
@@ -48,7 +54,7 @@ public class PersonaController {
   ipersonaService.savePersona(persona);
   return persona;
  }
-     @GetMapping("/personas/traer/perfil")
+     @GetMapping("/persona/traer/perfil")
      public Persona findPersona(){
          return ipersonaService.findPersona((long)1);
      }

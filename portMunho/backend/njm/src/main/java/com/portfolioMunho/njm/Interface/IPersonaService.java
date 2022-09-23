@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface IPersonaService {
    //buscar 
-    public List<Persona> getPersona();
+    public  List <Persona> getPersona();
     //guardar
     public void savePersona(Persona persona);
     //eliminar
