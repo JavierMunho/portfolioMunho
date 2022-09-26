@@ -19,7 +19,7 @@ public class Persona{
     
     @NotNull
     @Size (min = 1, max = 50,message = "demasiados caracteres o ninguno" )
-    private String nombre ;
+    private String nombre;
     
     @NotNull
     @Size (min = 1, max = 50,message = "demasiados caracteres o ninguno" )
