@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
   IsLogginFall = false;
   loginUsuario!: LoginUsuario;
   nombreUsuario!: string;
-  password! : string;
+  password!: string;
   roles: string[] = [];
   errMsj!: string;
 
@@ -30,8 +30,8 @@ export class LoginComponent implements OnInit {
   }
  
   onLogin(): void{
-    this.loginUsuario = new LoginUsuario(this.nombreUsuario, this.password)
-      ; this.authService.login(this.loginUsuario).subscribe(data =>{
+    this.loginUsuario = new LoginUsuario(this.nombreUsuario, this.password); this.authService
+      .login(this.loginUsuario).subscribe(data => {
         this.IsLogged = true;
         this.IsLogginFall = false;
         this.tokenService.setToken(data.token);
