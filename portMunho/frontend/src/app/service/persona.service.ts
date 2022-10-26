@@ -9,7 +9,7 @@ import { persona } from '../models/person.model';
   providedIn: 'root'
 })
 export class PersonaService {
-  URL = "/personas/";
+  URL = /proxy/+'personas/';
   constructor(private http: HttpClient) { }
 
   public getPersona(): Observable<persona>{

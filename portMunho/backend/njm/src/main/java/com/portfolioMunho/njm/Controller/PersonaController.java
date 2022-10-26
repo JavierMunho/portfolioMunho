@@ -22,7 +22,7 @@ public class PersonaController {
    @Autowired IPersonaService ipersonaService;
    
   @GetMapping("/personas/traer")
-   public List <Persona> getPersona(){
+   public List <Persona> gePersona (){
        return ipersonaService.getPersona();
    }
    
@@ -36,7 +36,7 @@ public class PersonaController {
 }
    @PreAuthorize("hashRole('ADMIN')")
    @DeleteMapping("/personas/borrar/{id}")
-   public String deletePersona(@PathVariable Long id){
+   public String deletePersona (@PathVariable Long id){
        ipersonaService.deletePersona(id);
       return "el registro se borro completamente";
 }  
@@ -47,6 +47,7 @@ public class PersonaController {
                              @RequestParam("apellido")String nuevoApellido,
                              @RequestParam("img")String nuevoImg){
   Persona persona = ipersonaService.findPersona(id);
+  
   persona.setNombre(nuevoNombre);
   persona.setApellido(nuevoApellido);
   persona.setImg(nuevoImg);

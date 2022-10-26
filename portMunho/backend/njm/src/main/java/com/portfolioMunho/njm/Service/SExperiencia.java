@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.portfolioMunho.njm.Security.Service;
+package com.portfolioMunho.njm.Service;
 
 
 import com.portfolioMunho.njm.Entity.Experiencia;
@@ -27,7 +27,7 @@ public Optional<Experiencia> getOne(int id){
 } 
 
 public Optional<Experiencia> getByNombreE (String nombreE){
-    return rExperiencia.findbyNombrE(nombreE);
+    return rExperiencia.findByNombreE(nombreE);
 }
 public void save(Experiencia expe){
     rExperiencia.save(expe);
@@ -41,6 +41,6 @@ return rExperiencia.existsById(id);
 }
 
 public boolean existByNombreE(String nombreE){
-return rExperiencia.existByNombreE(nombreE);
+return rExperiencia.existsByNombreE(nombreE);
 }
 }

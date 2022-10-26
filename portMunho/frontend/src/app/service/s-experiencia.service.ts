@@ -7,7 +7,7 @@ import { Experiencia } from '../models/experiencia';
   providedIn: 'root'
 })
 export class SExperienciaService {
-  expURL = "/personas/"
+  expURL = "/proxy/"
   constructor(private httpClient: HttpClient) { }
   
   public lista(): Observable<Experiencia[]> {

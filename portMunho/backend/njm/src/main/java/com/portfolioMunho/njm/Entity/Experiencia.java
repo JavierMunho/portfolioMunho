@@ -9,15 +9,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-/**
- *
- * @author usuario
- */
-@Entity
-public class Experiencia {
 
-  
-    
+@Entity
+public class Experiencia {  
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;

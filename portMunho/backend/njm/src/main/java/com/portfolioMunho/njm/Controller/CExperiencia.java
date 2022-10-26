@@ -7,13 +7,14 @@ package com.portfolioMunho.njm.Controller;
 import com.portfolioMunho.njm.Dto.dtoExperiencia;
 import com.portfolioMunho.njm.Entity.Experiencia;
 import com.portfolioMunho.njm.Security.Controller.Mensaje;
-import com.portfolioMunho.njm.Security.Service.SExperiencia;
+import com.portfolioMunho.njm.Service.SExperiencia;
 import java.util.List;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,7 +24,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("explab")
+@RequestMapping("/explab")
 @CrossOrigin(origins = "http://localhost:4200")
 public class CExperiencia {
 
@@ -36,14 +37,37 @@ public class CExperiencia {
         return new ResponseEntity(list, HttpStatus.OK);
     }
 
+    @GetMapping("/detail/{id}")
+    public ResponseEntity<Experiencia> getByID(@PathVariable("id") int id) {
+        if (!sExperiencia.existById(id)) {
+            return new ResponseEntity(new Mensaje("no existe"), HttpStatus.NOT_FOUND);
+        }
+
+        Experiencia experiencia = sExperiencia.getOne(id).get();
+        return new ResponseEntity(experiencia, HttpStatus.OK);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<?> delete(@PathVariable("id") int id) {
+        if (!sExperiencia.existById(id)) {
+            return new ResponseEntity(new Mensaje("El ID no existe"), HttpStatus.BAD_REQUEST);
+        }
+
+        sExperiencia.delete(id);
+        return new ResponseEntity(new Mensaje("experiencia eliminada"), HttpStatus.OK);
+
+    }
+
     @PostMapping("/create")
     public ResponseEntity<?> create(@RequestBody dtoExperiencia dtoexp) {
         if (StringUtils.isBlank(dtoexp.getNombreE())) {
             return new ResponseEntity(new Mensaje("El nombre es obigatorio"), HttpStatus.BAD_REQUEST);
         }
+
         if (sExperiencia.existByNombreE(dtoexp.getNombreE())) {
             return new ResponseEntity(new Mensaje("Esa experiencia existe"), HttpStatus.BAD_REQUEST);
         }
+
         Experiencia experiencia = new Experiencia(dtoexp.getNombreE(), dtoexp.getDescripcionE());
         sExperiencia.save(experiencia);
 
@@ -51,7 +75,7 @@ public class CExperiencia {
 
     }
 
-    @PutMapping("/update/(id)")
+    @PutMapping("/update/{id}")
     public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody dtoExperiencia dtoexp) {
         if (!sExperiencia.existById(id)) {
             return new ResponseEntity(new Mensaje("El ID no existe"), HttpStatus.BAD_REQUEST);
@@ -71,26 +95,6 @@ public class CExperiencia {
 
         sExperiencia.save(experiencia);
         return new ResponseEntity(new Mensaje("Experiencia actualizada"), HttpStatus.OK);
-
-    }
-
-    @GetMapping("/detail/{id}")
-    public ResponseEntity<Experiencia> getByID(@PathVariable("id") int id) {
-        if (!sExperiencia.existById(id)) {
-            return new ResponseEntity(new Mensaje("no existe"), HttpStatus.NOT_FOUND);
-        }
-        Experiencia experiencia = sExperiencia.getOne(id).get();
-        return new ResponseEntity(experiencia, HttpStatus.OK);
-    }
-
-    public ResponseEntity<?> delete(@PathVariable("id") int id) {
-        if (!sExperiencia.existById(id)) {
-            return new ResponseEntity(new Mensaje("El ID no existe"), HttpStatus.BAD_REQUEST);
-        }
-
-        sExperiencia.delete(id);
-
-        return new ResponseEntity(new Mensaje("experiencia eliminada"), HttpStatus.OK);
 
     }
 }

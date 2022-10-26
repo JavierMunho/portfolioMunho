@@ -22,7 +22,7 @@ public class JwtDto {
     public JwtDto() {
     }
 
-    public JwtDto(String token, String nombreusuario, Collection<? extends GrantedAuthority> authorities) {
+    public JwtDto(String token, String nombreUsuario, Collection<? extends GrantedAuthority> authorities) {
         this.token = token;
         this.nombreUsuario = nombreUsuario;
         this.authorities = authorities;

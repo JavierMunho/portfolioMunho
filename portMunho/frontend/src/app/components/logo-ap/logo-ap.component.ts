@@ -7,8 +7,9 @@ import { TokenService } from 'src/app/service/token.service';
   templateUrl: './logo-ap.component.html',
   styleUrls: ['./logo-ap.component.css']
 })
-export class LogoApComponent implements OnInit {
+export class LogoAPComponent implements OnInit {
   isLogged = false;
+
   constructor(private router: Router, private tokenService: TokenService) { }
 
   ngOnInit(): void {
@@ -18,11 +19,11 @@ export class LogoApComponent implements OnInit {
       this.isLogged = false;
     }
   }
-  onLogOut(): void{
+  onLogOut(): void {
     this.tokenService.logOut();
     window.location.reload();
   }
-  login(){
+  login() {
     this.router.navigate(['/login'])
   }
 }
