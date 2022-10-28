@@ -9,7 +9,7 @@ import { NuevoUsuario } from '../models/nuevo-usuario';
   providedIn: 'root'
 })
 export class AuthService {
-  URL ='proxy/auth/';
+  URL ='http://Localhost:8080/auth/';
   
   constructor(private httpClient: HttpClient) { }
 
