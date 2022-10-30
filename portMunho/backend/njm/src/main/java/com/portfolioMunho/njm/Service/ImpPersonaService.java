@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 
-public class ImpPersonaService implements IPersonaService {
+public class ImpPersonaService implements IPersonaService{
     @Autowired IPersonaRepository ipersonaRepository; 
 
     @Override

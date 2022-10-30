@@ -6,10 +6,7 @@ package com.portfolioMunho.njm.Security.Dto;
 
 import javax.validation.constraints.NotBlank;
 
-/**
- *
- * @author usuario
- */
+
 public class LoginUsuario {
     @NotBlank
     private String nombreUsuario;

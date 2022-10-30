@@ -4,10 +4,7 @@
  */
 package com.portfolioMunho.njm.Security.Controller;
 
-/**
- *
- * @author usuario
- */
+
 public class Mensaje {
     private String mensaje;
     

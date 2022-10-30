@@ -7,10 +7,7 @@ package com.portfolioMunho.njm.Security.Dto;
 import java.util.Collection;
 import org.springframework.security.core.GrantedAuthority;
 
-/**
- *
- * @author usuario
- */
+
 public class JwtDto {
   private String token;
   private String bearer = "Bearer";
@@ -19,9 +16,7 @@ public class JwtDto {
   
   //* constructor
 
-    public JwtDto() {
-    }
-
+ 
     public JwtDto(String token, String nombreUsuario, Collection<? extends GrantedAuthority> authorities) {
         this.token = token;
         this.nombreUsuario = nombreUsuario;

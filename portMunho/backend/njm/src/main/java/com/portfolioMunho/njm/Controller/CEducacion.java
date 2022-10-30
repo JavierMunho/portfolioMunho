@@ -25,7 +25,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/educacion")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "https://frontendjaviermunho.web.app")
 
 public class CEducacion {
 
@@ -33,12 +33,12 @@ public class CEducacion {
     SEducacion sEducacion;
 
     @GetMapping("/lista")
-    public ResponseEntity<List<Educacion>> list() {
+    public ResponseEntity<List<Educacion>> list(){
         List<Educacion> list = sEducacion.list();
         return new ResponseEntity(list, HttpStatus.OK);
     }
     @GetMapping("detail/{id}")
-    public ResponseEntity<Educacion> getById (@PathVariable ("id")int id){
+    public ResponseEntity<Educacion> getById(@PathVariable("id")int id){
     if (!sEducacion.existsById(id)){
       return new ResponseEntity(new Mensaje("No existe el ID"), HttpStatus.BAD_REQUEST);
     }
@@ -73,14 +73,14 @@ public class CEducacion {
     }
 
     @PutMapping("/update/{id}")
-    public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody DtoEducacion dtoeducacion) {
+    public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody DtoEducacion dtoeducacion){
         if (!sEducacion.existsById(id)) {
             return new ResponseEntity(new Mensaje("No existe el id"), HttpStatus.NOT_FOUND);
         }
-        if (sEducacion.existsByNombreE(dtoeducacion.getNombreE()) && sEducacion.getByNombreE(dtoeducacion.getNombreE()).get().getId() != id) {
+        if (sEducacion.existsByNombreE(dtoeducacion.getNombreE()) && sEducacion.getByNombreE(dtoeducacion.getNombreE()).get().getId() != id){
             return new ResponseEntity(new Mensaje("Ese nombre ya existe"), HttpStatus.BAD_REQUEST);
         }
-        if (StringUtils.isBlank(dtoeducacion.getNombreE())) {
+        if(StringUtils.isBlank(dtoeducacion.getNombreE())) {
             return new ResponseEntity(new Mensaje("El campo no puede estar vacio"), HttpStatus.BAD_REQUEST);
         }
 

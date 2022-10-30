@@ -20,8 +20,8 @@ public class UsuarioPrincipal implements UserDetails {
 
     private String nombre;
     private String nombreUsuario;
-    private String password;
     private String email;
+    private String password;  
     private Collection<? extends GrantedAuthority> authorities;
 
     //constructor

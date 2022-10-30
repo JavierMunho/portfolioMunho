@@ -7,7 +7,7 @@ import { Experiencia } from '../models/experiencia';
   providedIn: 'root'
 })
 export class SExperienciaService {
-  URL = 'http://localhost:8080/experiencia/'
+  URL = 'https://git.heroku.com/backendportnjm.git/experiencia/'
   constructor(private httpClient: HttpClient) { }
   
   public lista(): Observable<Experiencia[]> {

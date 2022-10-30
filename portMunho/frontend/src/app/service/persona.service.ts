@@ -9,7 +9,7 @@ import { persona } from '../models/person.model';
   providedIn: 'root'
 })
 export class PersonaService {
-  URL = 'http://localhost:8080/personas/';
+  URL = 'https://git.heroku.com/backendportnjm.git/persona/';
   constructor(private http: HttpClient) { }
 
   public getPersona(): Observable<persona>{

@@ -34,7 +34,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/auth")
-@CrossOrigin(origins ="http://localhost:4200")
+@CrossOrigin(origins ="https://frontendjaviermunho.web.app")
 public class AuthController {
 
     @Autowired
@@ -69,8 +69,7 @@ public class AuthController {
         roles.add(rolService.getByRolNombre(RolNombre.ROLE_USER).get());
 
         if (nuevoUsuario.getRoles().contains("admin")) 
-            roles.add(rolService.getByRolNombre(RolNombre.ROLE_ADMIN).get());
-        
+            roles.add(rolService.getByRolNombre(RolNombre.ROLE_ADMIN).get()); 
         usuario.setRoles(roles);
         usuarioService.save(usuario);
 
@@ -78,10 +77,10 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<JwtDto> login(@Valid @RequestBody LoginUsuario loginUsuario, BindingResult bindingResult) {
-        if (bindingResult.hasErrors()){
+    public ResponseEntity<JwtDto> login(@Valid @RequestBody LoginUsuario loginUsuario, BindingResult bindingResult){
+        if (bindingResult.hasErrors())
             return new ResponseEntity(new Mensaje("Campos mal puestos"), HttpStatus.BAD_REQUEST);
-        }
+        
         Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(
                 loginUsuario.getNombreUsuario(), loginUsuario.getPassword()));
 

@@ -21,18 +21,16 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-/**
- *
- * @author usuario
- */
+
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class MainSecurity extends WebSecurityConfigurerAdapter  {
     @Autowired
     UserDetailsImpl userDetailsServicesImpl;
+    
     @Autowired
-    JwtEntryPoint jwtEntrypoint;
+    JwtEntryPoint jwtEntryPoint;
     
     @Bean
     public JwtTokenFilter jwtTokenFilter(){
@@ -50,7 +48,7 @@ public class MainSecurity extends WebSecurityConfigurerAdapter  {
                 .antMatchers("**").permitAll()
                 .anyRequest().authenticated()
                 .and()
-                .exceptionHandling().authenticationEntryPoint(jwtEntrypoint)
+                .exceptionHandling().authenticationEntryPoint(jwtEntryPoint)
                 .and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         http.addFilterBefore(jwtTokenFilter(),UsernamePasswordAuthenticationFilter.class);
